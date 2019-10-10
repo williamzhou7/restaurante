@@ -1,8 +1,17 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package view;
 
 import com.model.bean.Cliente;
+import com.model.bean.Mesa;
+import com.model.bean.Produto;
+import com.model.dao.MesaDAO;
 import com.model.dao.ClienteDAO;
+import com.model.dao.ProdutoDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -11,10 +20,22 @@ import com.model.dao.ClienteDAO;
 public class CadastroCliente extends javax.swing.JFrame {
 
     /**
-     * Creates new form CadastroCliente
+     * Creates new form NewJFrame
      */
     public CadastroCliente() {
         initComponents();
+        
+         MesaDAO tdao = new MesaDAO();
+         for(Mesa m: tdao.FindAll()){
+       
+            mesaComboBox.addItem(m);
+       }
+         
+         ProdutoDAO pdao = new ProdutoDAO();
+         for(Produto p: pdao.FindAll()){
+       
+            produtoComboBox.addItem(p);
+       }
     }
 
     /**
@@ -26,185 +47,203 @@ public class CadastroCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LabelCodigo = new javax.swing.JLabel();
-        codigoTextField = new javax.swing.JTextField();
-        cadastrarBtn = new javax.swing.JButton();
-        LabelDescricao = new javax.swing.JLabel();
-        descricaoTextField = new javax.swing.JTextField();
-        LabelQuantidade = new javax.swing.JLabel();
-        quantidadeTextField = new javax.swing.JTextField();
-        limparBtn = new javax.swing.JButton();
-        cancelarBtn = new javax.swing.JButton();
-        LabelValor = new javax.swing.JLabel();
-        valorTextField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        nomeClienteLbl = new javax.swing.JLabel();
+        nomeClienteTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        mesaComboBox = new javax.swing.JComboBox<>();
+        obsClienteLbl = new javax.swing.JLabel();
+        obsClienteTextField = new javax.swing.JTextField();
+        cadastrarMesaBtn = new javax.swing.JButton();
+        limparMesaBtn = new javax.swing.JButton();
+        cancelarMesaBtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        produtoComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro de Item");
-        setName("frame0"); // NOI18N
 
-        LabelCodigo.setText("Código Item");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setText("Cliente");
 
-        cadastrarBtn.setText("Cadastrar");
-        cadastrarBtn.addActionListener(new java.awt.event.ActionListener() {
+        nomeClienteLbl.setText("Nome:");
+
+        nomeClienteTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarBtnActionPerformed(evt);
+                nomeClienteTextFieldActionPerformed(evt);
             }
         });
 
-        LabelDescricao.setText("Descrição");
+        jLabel2.setText("Mesa:");
 
-        descricaoTextField.addActionListener(new java.awt.event.ActionListener() {
+        mesaComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                descricaoTextFieldActionPerformed(evt);
+                mesaComboBoxActionPerformed(evt);
             }
         });
 
-        LabelQuantidade.setText("Quantidade");
+        obsClienteLbl.setText("Obs:");
 
-        quantidadeTextField.addActionListener(new java.awt.event.ActionListener() {
+        cadastrarMesaBtn.setText("Cadastrar");
+        cadastrarMesaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quantidadeTextFieldActionPerformed(evt);
+                cadastrarMesaBtnActionPerformed(evt);
             }
         });
 
-        limparBtn.setText("Limpar");
-        limparBtn.addActionListener(new java.awt.event.ActionListener() {
+        limparMesaBtn.setText("Limpar");
+        limparMesaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limparBtnActionPerformed(evt);
+                limparMesaBtnActionPerformed(evt);
             }
         });
 
-        cancelarBtn.setText("Cancelar");
-        cancelarBtn.addActionListener(new java.awt.event.ActionListener() {
+        cancelarMesaBtn.setText("Cancelar");
+        cancelarMesaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarBtnActionPerformed(evt);
+                cancelarMesaBtnActionPerformed(evt);
             }
         });
 
-        LabelValor.setText("Valor Unitário");
+        jLabel3.setText("Produto:");
 
-        valorTextField.addActionListener(new java.awt.event.ActionListener() {
+        produtoComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                valorTextFieldActionPerformed(evt);
+                produtoComboBoxActionPerformed(evt);
             }
         });
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Produto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(cadastrarBtn)
-                .addGap(53, 53, 53)
-                .addComponent(limparBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(cancelarBtn)
-                .addGap(54, 54, 54))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelCodigo)
-                            .addComponent(LabelDescricao)
-                            .addComponent(LabelQuantidade))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(descricaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(quantidadeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(LabelValor)
-                                .addGap(18, 18, 18)
-                                .addComponent(valorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(codigoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(nomeClienteLbl)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(mesaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(obsClienteLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(obsClienteTextField))
+                                    .addComponent(nomeClienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(produtoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(cadastrarMesaBtn)
+                                .addGap(29, 29, 29)
+                                .addComponent(limparMesaBtn)
+                                .addGap(27, 27, 27)
+                                .addComponent(cancelarMesaBtn)))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelCodigo)
-                    .addComponent(codigoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(nomeClienteLbl)
+                    .addComponent(nomeClienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelDescricao)
-                    .addComponent(descricaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel2)
+                    .addComponent(mesaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(obsClienteLbl)
+                    .addComponent(obsClienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelQuantidade)
-                    .addComponent(quantidadeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelValor)
-                    .addComponent(valorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                    .addComponent(jLabel3)
+                    .addComponent(produtoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cadastrarBtn)
-                    .addComponent(limparBtn)
-                    .addComponent(cancelarBtn))
-                .addGap(37, 37, 37))
+                    .addComponent(cadastrarMesaBtn)
+                    .addComponent(limparMesaBtn)
+                    .addComponent(cancelarMesaBtn))
+                .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void descricaoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descricaoTextFieldActionPerformed
+    private void nomeClienteTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeClienteTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_descricaoTextFieldActionPerformed
+    }//GEN-LAST:event_nomeClienteTextFieldActionPerformed
 
-    private void quantidadeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantidadeTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_quantidadeTextFieldActionPerformed
+    private void cadastrarMesaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarMesaBtnActionPerformed
+        verificadigitacao();
+    }//GEN-LAST:event_cadastrarMesaBtnActionPerformed
 
-    private void cadastrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarBtnActionPerformed
-        cadastracliente();
-    }//GEN-LAST:event_cadastrarBtnActionPerformed
-
-    private void limparBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparBtnActionPerformed
+    private void limparMesaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparMesaBtnActionPerformed
         limpa();
-    }//GEN-LAST:event_limparBtnActionPerformed
-  
-    private void cancelarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBtnActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_cancelarBtnActionPerformed
+    }//GEN-LAST:event_limparMesaBtnActionPerformed
 
-    private void valorTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorTextFieldActionPerformed
+    private void cancelarMesaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarMesaBtnActionPerformed
+        dispose();
+    }//GEN-LAST:event_cancelarMesaBtnActionPerformed
+
+    private void produtoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produtoComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_valorTextFieldActionPerformed
+    }//GEN-LAST:event_produtoComboBoxActionPerformed
 
-    private void cadastracliente() {
+    private void mesaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesaComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mesaComboBoxActionPerformed
+
+    
+    private void cadastraCliente() {
         Cliente c  = new Cliente();
         ClienteDAO cdao = new ClienteDAO();
         
-        c.setCodigo(codigoTextField.getText());
-        c.setDescricao(descricaoTextField.getText());
-        c.setQuantidade(quantidadeTextField.getText());
-        c.setValor(valorTextField.getText());
-       
+        Mesa m = (Mesa) mesaComboBox.getSelectedItem();
+        Produto p = (Produto) produtoComboBox.getSelectedItem();
+        
+        c.setNome_cliente(nomeClienteTextField.getText());
+        c.setMesa(m);
+        c.setObs(obsClienteTextField.getText());
+        c.setProduto(p);
+        
+        
         cdao.save(c);
+        limpa();
         
     }
     
     private void limpa() {
         
-        codigoTextField.setText(null);
-        descricaoTextField.setText(null);
-        quantidadeTextField.setText(null);
-        valorTextField.setText(null);
-         
+        nomeClienteTextField.setText(null);
+        obsClienteTextField.setText(null);
+       
     }
     
-  
+    private void verificadigitacao(){
+        
+        if(nomeClienteTextField.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Favor informar o nome do cliente!");
+            obsClienteTextField.requestFocus();
+            return;
+        }
+        if(obsClienteTextField.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Favor informar alguma observação!");
+            cadastrarMesaBtn.requestFocus();
+            return;
+        }
+        
+         cadastraCliente();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -239,19 +278,18 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LabelCodigo;
-    private javax.swing.JLabel LabelDescricao;
-    private javax.swing.JLabel LabelQuantidade;
-    private javax.swing.JLabel LabelValor;
-    private javax.swing.JButton cadastrarBtn;
-    private javax.swing.JButton cancelarBtn;
-    private javax.swing.JTextField codigoTextField;
-    private javax.swing.JTextField descricaoTextField;
+    private javax.swing.JButton cadastrarMesaBtn;
+    private javax.swing.JButton cancelarMesaBtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton limparBtn;
-    private javax.swing.JTextField quantidadeTextField;
-    private javax.swing.JTextField valorTextField;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton limparMesaBtn;
+    private javax.swing.JComboBox<Object> mesaComboBox;
+    private javax.swing.JLabel nomeClienteLbl;
+    private javax.swing.JTextField nomeClienteTextField;
+    private javax.swing.JLabel obsClienteLbl;
+    private javax.swing.JTextField obsClienteTextField;
+    private javax.swing.JComboBox<Object> produtoComboBox;
     // End of variables declaration//GEN-END:variables
 }

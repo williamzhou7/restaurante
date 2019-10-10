@@ -5,9 +5,9 @@
     <!-- Implementação do JPA -->
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <!-- Lista de entidades -->
+    <class>com.model.bean.Produto</class>
     <class>com.model.bean.Cliente</class>
-    <class>com.model.bean.Cardapio</class>
-    <class>com.model.bean.Pedido</class>
+    <class>com.model.bean.Mesa</class>
     <properties>
       <!-- Propriedades JDBC -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
